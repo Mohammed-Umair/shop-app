@@ -26,7 +26,13 @@ mongoose
   .then(() => console.log("DB connection succesfull"))
   .catch((err) => console.log(err));
 
-app.use(cors());
+app.use(cors(
+  {
+    origin:[""],
+    methods:["POST","GET"],
+    credentails:true
+  }
+));
 app.use(express.json());
 //   app.get("/api/test", () => console.log("test is successfull"));
 app.use("/api/auth", authRoute);
